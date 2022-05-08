@@ -4,6 +4,26 @@ import $ from "jquery";
 import "slick-carousel";
 
 // $(function () {
+
+    let scrollPos = 0;
+    $('body').scroll(function(){
+        let $body = $('body');
+        let st = $(this).scrollTop();
+
+        if (st > scrollPos) {
+            // console.log('Вниз');
+            $body.addClass('header-show');
+        } else {
+            // console.log('Вверх');
+            if (st > $('#header').outerHeight() * 4) {
+                $body.removeClass('header-show');
+            } else if (st > $('#header').outerHeight() * 3) {
+                $body.addClass('header-show');
+            }
+        }
+        scrollPos = st;
+    });
+
     $('[data-slider="container"]').each(function () {
         let $this = $(this);
         let navigation = $this.find('[data-slider="navigation"]');

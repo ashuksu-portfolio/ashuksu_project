@@ -1,12 +1,19 @@
+body.header-show {
+  .header {
+    top: 0;
+  }
+}
+
 .header {
   background-color: #fff;
   position: fixed;
   width: 100%;
-  top: 0;
+  top: -100px;
   left: 0;
   right: 0;
   z-index: 2;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+  transition: .5s ease-in-out;
 
   &__inner {
     @extend %flex-s;
